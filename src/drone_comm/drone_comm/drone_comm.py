@@ -418,19 +418,20 @@ class  DroneClass:
         ####################
         if active == "Connect":
             try:
+                # This part was commented beccause it is not potimal with docker
                 # To verify that that the radio Wi-Fi es activated
-                subprocess.run(['nmcli', 'radio', 'wifi', 'on'])
-                subprocess.run(['nmcli', 'device', 'wifi', 'rescan'])
-                sleep(2)
-                subprocess.run(['nmcli', '-t', '-f', 'SSID,BSSID', 'device', 'wifi', 'list'], text = True)
-                connect = subprocess.run(['nmcli', 'device', 'wifi', 'connect','TELLO-9A6F11', ], text = True, capture_output=True)
-                sleep(2)
-                if connect.returncode != 0:
-                    self.logger.error(f"Failed to connect to Tello: {connect.stderr}")
-                    return False
+                #subprocess.run(['nmcli', 'radio', 'wifi', 'on'])
+                #subprocess.run(['nmcli', 'device', 'wifi', 'rescan'])
+                #sleep(2)
+                #subprocess.run(['nmcli', '-t', '-f', 'SSID,BSSID', 'device', 'wifi', 'list'], text = True)
+                #connect = subprocess.run(['nmcli', 'device', 'wifi', 'connect','TELLO-9A6F11', ], text = True, capture_output=True)
+                #sleep(2)
+                #if connect.returncode != 0:
+                #    self.logger.error(f"Failed to connect to Tello: {connect.stderr}")
+                #    return False
                 try:
-                    self.drone.connect()
-                    self.drone.streamon()
+                    self.drone.connect() # Tello Connection
+                    self.drone.streamon() # Tello Starting the streaming
                 except Exception as e:
                     self.logger.exception("Djitellopy Error Comm")
                     return False
