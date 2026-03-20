@@ -223,7 +223,7 @@ class Window(ctk.CTk):
             img = ImagePIL.fromarray(self.frame)
             self.photo = ImageTk.PhotoImage(image = img)
             self.label_video.label_video_img(self.photo) 
-        self.after(15, self.update)
+        self.after(100, self.update)
     
     def ros_tp_get_frame(self, frame):
         self.frame = frame
