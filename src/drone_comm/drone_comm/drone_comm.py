@@ -849,12 +849,12 @@ class  DroneClass:
                 # map  sequence #
                 #self.fb = 5
                 #if i < 6: 
-                #    self.yv = 30
+                #    self.yv = 40
                 #else: 
-                #    self.yv = -30
+                #    self.yv = -40
                 #if i == 10: 
                 #    i = 0
-                
+                self.yv = 40                
                 
             self.drone_motion_send()
             a = not self.throttle_slave_activation
